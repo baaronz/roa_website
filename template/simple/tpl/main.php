@@ -27,45 +27,41 @@
                                     Create Account
                                 </h4>
                                 
-                                <form action="" method="post" class="form-container">
+                                <form action="" method="post" class="flex-grow-1 d-flex flex-column">
                                     <?php error_msg(); success_msg(); ?>
                                     
-                                    <div class="form-fields">
-                                        <div class="mb-2">
-                                            <label for="username" class="form-label">
-                                                Username
-                                            </label>
-                                            <input type="text" class="form-control" id="username" name="username" required>
-                                        </div>
-                                        
-                                        <div class="mb-2">
-                                            <label for="email" class="form-label">
-                                                Email (Optional)
-                                            </label>
-                                            <input type="email" class="form-control" id="email" name="email">
-                                        </div>
-                                        
-                                        <div class="mb-2">
-                                            <label for="password" class="form-label">
-                                                Password
-                                            </label>
-                                            <input type="password" class="form-control" id="password" name="password" required>
-                                        </div>
-                                        
-                                        <div class="mb-3">
-                                            <label for="repassword" class="form-label">
-                                                Retype Password
-                                            </label>
-                                            <input type="password" class="form-control" id="repassword" name="repassword" required>
-                                        </div>
+                                    <div class="mb-2">
+                                        <label for="username" class="form-label">
+                                            Username
+                                        </label>
+                                        <input type="text" class="form-control" id="username" name="username" required>
                                     </div>
                                     
-                                    <div class="form-submit">
-                                        <input name="submit" type="hidden" value="register">
-                                        <button type="submit" class="btn btn-primary w-100">
-                                            Register
-                                        </button>
+                                    <div class="mb-2">
+                                        <label for="email" class="form-label">
+                                            Email (Optional)
+                                        </label>
+                                        <input type="email" class="form-control" id="email" name="email">
                                     </div>
+                                    
+                                    <div class="mb-2">
+                                        <label for="password" class="form-label">
+                                            Password
+                                        </label>
+                                        <input type="password" class="form-control" id="password" name="password" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="repassword" class="form-label">
+                                            Retype Password
+                                        </label>
+                                        <input type="password" class="form-control" id="repassword" name="repassword" required>
+                                    </div>
+                                    
+                                    <input name="submit" type="hidden" value="register">
+                                    <button type="submit" class="btn btn-primary w-100 mt-auto">
+                                        Register
+                                    </button>
                                 </form>
                             </div>
                         </div>

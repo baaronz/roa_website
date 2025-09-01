@@ -40,7 +40,7 @@
             backdrop-filter: blur(10px);
             width: 100%;
             max-width: 400px;
-            height: 450px;
+            height: 500px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
             display: flex;
@@ -51,10 +51,10 @@
             background: rgba(30, 30, 30, 0.8);
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            padding: 6px 10px;
+            padding: 8px 12px;
             color: #ffffff;
             transition: all 0.3s ease;
-            font-size: 13px;
+            font-size: 14px;
         }
         
         .form-control:focus {
@@ -72,10 +72,10 @@
             background: #6c757d;
             border: none;
             border-radius: 8px;
-            padding: 6px 16px;
+            padding: 8px 16px;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 13px;
+            font-size: 14px;
         }
         
         .btn-primary:hover {
@@ -88,8 +88,8 @@
             border: none;
             background: rgba(30, 30, 30, 0.8);
             border-radius: 8px;
-            padding: 3px;
-            margin-bottom: 10px;
+            padding: 4px;
+            margin-bottom: 15px;
             flex-shrink: 0;
         }
         
@@ -99,8 +99,8 @@
             color: rgba(255, 255, 255, 0.7);
             font-weight: 500;
             transition: all 0.3s ease;
-            font-size: 11px;
-            padding: 5px 6px;
+            font-size: 12px;
+            padding: 6px 8px;
             margin: 0 1px;
         }
         
@@ -118,9 +118,9 @@
             border: none;
             background: rgba(30, 30, 30, 0.8);
             color: #ffffff;
-            font-size: 11px;
-            padding: 6px 10px;
-            margin-bottom: 10px;
+            font-size: 12px;
+            padding: 8px 12px;
+            margin-bottom: 15px;
         }
         
         .alert-danger {
@@ -152,40 +152,40 @@
         }
         
         .card-body {
-            padding: 12px !important;
+            padding: 15px !important;
         }
         
         h4 {
-            font-size: 16px;
-            margin-bottom: 10px !important;
+            font-size: 18px;
+            margin-bottom: 15px !important;
         }
         
         h6 {
-            font-size: 13px;
-            margin-bottom: 5px;
+            font-size: 14px;
+            margin-bottom: 8px;
         }
         
         label {
             color: rgba(255, 255, 255, 0.9);
-            font-size: 12px;
-            margin-bottom: 3px;
+            font-size: 13px;
+            margin-bottom: 5px;
         }
         
         .form-label {
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
         
         .mb-3 {
-            margin-bottom: 8px !important;
+            margin-bottom: 12px !important;
         }
         
         .mb-4 {
-            margin-bottom: 10px !important;
+            margin-bottom: 15px !important;
         }
         
         .py-4 {
-            padding-top: 10px !important;
-            padding-bottom: 10px !important;
+            padding-top: 15px !important;
+            padding-bottom: 15px !important;
         }
         
         .tab-content {
@@ -200,21 +200,21 @@
         }
         
         .p-4 {
-            padding: 12px !important;
+            padding: 15px !important;
         }
         
         p {
-            font-size: 12px;
-            margin-bottom: 8px;
+            font-size: 13px;
+            margin-bottom: 10px;
         }
         
         code {
-            font-size: 11px;
+            font-size: 12px;
         }
         
         pre {
-            font-size: 11px;
-            margin-bottom: 8px;
+            font-size: 12px;
+            margin-bottom: 10px;
         }
         
         .server-info-container {
@@ -224,25 +224,7 @@
             justify-content: flex-start;
             height: 100%;
             text-align: center;
-            padding-top: 20px;
-        }
-        
-        .form-container {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .form-fields {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        
-        .form-submit {
-            margin-top: auto;
-            padding-top: 10px;
+            padding-top: 30px;
         }
     </style>
 </head>
