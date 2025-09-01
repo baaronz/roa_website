@@ -26,8 +26,11 @@ $config['server_core'] = 0; // 0 = TrinityCore, 1 = AzerothCore, etc.
 $config['srp6_support'] = true; // Enable for modern cores
 $config['srp6_version'] = 2; // SRP6 version
 
+// Game Expansion
+$config['expansion'] = 2; // 0 = Classic, 1 = TBC, 2 = WotLK, 3 = Cataclysm, etc.
+
 // Multiple Email Account Creation
-$config['multiple_email_use'] = false; // Allow multiple accounts per email
+$config['multiple_email_use'] = true; // Allow multiple accounts per email
 
 // Template Selection
 $config['template'] = 'simple'; // Our simple template

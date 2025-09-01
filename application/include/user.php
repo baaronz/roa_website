@@ -30,21 +30,27 @@ class user
     }
 
     /**
-     * User Registration
+     * User Registration - Based on webexample structure
      */
     public static function register()
     {
-        if ($_POST['submit'] != 'register' || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['email']) || empty($_POST['username'])) {
+        if ($_POST['submit'] != 'register' || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['username'])) {
             return false;
         }
 
         $username = clean_input($_POST['username']);
-        $email = clean_input($_POST['email']);
+        $email = !empty($_POST['email']) ? clean_input($_POST['email']) : '';
         $password = $_POST['password'];
         $repassword = $_POST['repassword'];
 
-        // Validation
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Username validation
+        if (!preg_match('/^[0-9A-Z-_]+$/', strtoupper($username))) {
+            error_msg(lang('use_valid_username'));
+            return false;
+        }
+
+        // Email validation (only if provided)
+        if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             error_msg(lang('use_valid_email'));
             return false;
         }
@@ -54,71 +60,68 @@ class user
             return false;
         }
 
-        if (get_config('srp6_support')) {
-            if (!(strlen($password) >= 4 && strlen($password) <= 128)) {
-                error_msg(lang('passwords_length'));
-                return false;
-            }
-        } else {
-            if (!(strlen($password) >= 4 && strlen($password) <= 16)) {
-                error_msg(lang('passwords_length'));
-                return false;
-            }
+        if (!(strlen($password) >= 4 && strlen($password) <= 16)) {
+            error_msg(lang('passwords_length'));
+            return false;
+        }
+
+        if (!(strlen($username) >= 2 && strlen($username) <= 16)) {
+            error_msg(lang('username_length'));
+            return false;
+        }
+
+        // Check if email already exists (if not allowing multiple emails and email is provided)
+        if (!get_config('multiple_email_use') && !empty($email) && !check_email_exists(strtoupper($email))) {
+            error_msg(lang('email_exists'));
+            return false;
         }
 
         // Check if username already exists
-        $stmt = database::$auth->prepare("SELECT id FROM account WHERE username = ?");
-        $stmt->execute([$username]);
-        if ($stmt->fetch()) {
+        if (!check_username_exists(strtoupper($username))) {
             error_msg(lang('username_exists'));
             return false;
         }
 
-        // Check if email already exists (if not allowing multiple emails)
-        if (!get_config('multiple_email_use')) {
-            $stmt = database::$auth->prepare("SELECT id FROM account WHERE email = ?");
-            $stmt->execute([$email]);
-            if ($stmt->fetch()) {
-                error_msg(lang('email_exists'));
-                return false;
-            }
-        }
-
-        // Create account
+        // Create account using SRP6 method (your table structure requires this)
         try {
-            if (get_config('srp6_support')) {
-                $hash_data = generate_srp6_hash($username, $password);
-                
-                $stmt = database::$auth->prepare("
-                    INSERT INTO account (username, email, salt, verifier, joindate, last_login, failed_logins, locked, locale, os, platform) 
-                    VALUES (?, ?, ?, ?, NOW(), NOW(), 0, 0, 0, 'Win', 'WoW')
-                ");
-                $stmt->execute([
-                    $username,
-                    $email,
-                    $hash_data['salt'],
-                    $hash_data['verifier']
-                ]);
-            } else {
-                // For older cores without SRP6
-                $salt = random_bytes(32);
-                $hash = sha1(strtoupper($username . ':' . $password));
-                
-                $stmt = database::$auth->prepare("
-                    INSERT INTO account (username, email, sha_pass_hash, joindate, last_login, failed_logins, locked, locale, os, platform) 
-                    VALUES (?, ?, ?, NOW(), NOW(), 0, 0, 0, 'Win', 'WoW')
-                ");
-                $stmt->execute([
-                    $username,
-                    $email,
-                    $hash
-                ]);
-            }
+            // Generate SRP6 salt and verifier
+            list($salt, $verifier) = getRegistrationData(strtoupper($username), $password);
+            
+            $data = [
+                'username' => strtoupper($username),
+                'salt' => $salt,
+                'verifier' => $verifier,
+                'email' => strtoupper($email),
+                'reg_mail' => strtoupper($email), // Also set reg_mail field
+                'expansion' => get_config('expansion'),
+                'last_ip' => $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1',
+                'last_attempt_ip' => $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1',
+                'failed_logins' => 0,
+                'locked' => 0,
+                'lock_country' => '00',
+                'online' => 0,
+                'Flags' => 0,
+                'mutetime' => 0,
+                'mutereason' => '',
+                'muteby' => '',
+                'locale' => 0,
+                'os' => 'Win',
+                'recruiter' => 0,
+                'totaltime' => 0,
+                'restore_key' => '1'
+            ];
+            
+            database::insert('account', $data);
 
             success_msg(lang('account_created'));
             return true;
-        } catch (PDOException $e) {
-            error_msg(lang('registration_failed'));
+        } catch (Exception $e) {
+            // Debug: Log the actual error
+            if (get_config('debug_mode')) {
+                error_msg('Registration failed: ' . $e->getMessage());
+            } else {
+                error_msg(lang('registration_failed'));
+            }
             return false;
         }
     }

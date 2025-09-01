@@ -24,45 +24,48 @@
                         <div class="card border-0 shadow-sm h-100">
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title text-center mb-3">
-                                    <i class="fas fa-user-plus text-primary me-2"></i>
                                     Create Account
                                 </h4>
                                 
-                                <form action="" method="post" class="flex-grow-1 d-flex flex-column">
+                                <form action="" method="post" class="form-container">
                                     <?php error_msg(); success_msg(); ?>
                                     
-                                    <div class="mb-2">
-                                        <label for="username" class="form-label">
-                                            <i class="fas fa-user me-1"></i><?php elang('username'); ?>
-                                        </label>
-                                        <input type="text" class="form-control" id="username" name="username" required>
+                                    <div class="form-fields">
+                                        <div class="mb-2">
+                                            <label for="username" class="form-label">
+                                                Username
+                                            </label>
+                                            <input type="text" class="form-control" id="username" name="username" required>
+                                        </div>
+                                        
+                                        <div class="mb-2">
+                                            <label for="email" class="form-label">
+                                                Email (Optional)
+                                            </label>
+                                            <input type="email" class="form-control" id="email" name="email">
+                                        </div>
+                                        
+                                        <div class="mb-2">
+                                            <label for="password" class="form-label">
+                                                Password
+                                            </label>
+                                            <input type="password" class="form-control" id="password" name="password" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="repassword" class="form-label">
+                                                Retype Password
+                                            </label>
+                                            <input type="password" class="form-control" id="repassword" name="repassword" required>
+                                        </div>
                                     </div>
                                     
-                                    <div class="mb-2">
-                                        <label for="email" class="form-label">
-                                            <i class="fas fa-envelope me-1"></i><?php elang('email'); ?>
-                                        </label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    <div class="form-submit">
+                                        <input name="submit" type="hidden" value="register">
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            Register
+                                        </button>
                                     </div>
-                                    
-                                    <div class="mb-2">
-                                        <label for="password" class="form-label">
-                                            <i class="fas fa-lock me-1"></i><?php elang('password'); ?>
-                                        </label>
-                                        <input type="password" class="form-control" id="password" name="password" required>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label for="repassword" class="form-label">
-                                            <i class="fas fa-lock me-1"></i><?php elang('retype_password'); ?>
-                                        </label>
-                                        <input type="password" class="form-control" id="repassword" name="repassword" required>
-                                    </div>
-                                    
-                                    <input name="submit" type="hidden" value="register">
-                                    <button type="submit" class="btn btn-primary w-100 mt-auto">
-                                        <i class="fas fa-user-plus me-2"></i><?php elang('register'); ?>
-                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -74,23 +77,19 @@
             <div class="tab-pane fade h-100" id="nav-serverinfo" role="tabpanel">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body">
-                        <h4 class="card-title text-center mb-3">
-                            <i class="fas fa-server text-primary me-2"></i>
-                            Server Information
-                        </h4>
-                        
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <strong><?php elang('realmlist'); ?>:</strong><br>
-                                    <code class="fs-6"><?php echo get_config('realmlist'); ?></code>
-                                </div>
+                        <div class="server-info-container">
+                            <h4 class="card-title text-center mb-4">
+                                Server Information
+                            </h4>
+                            
+                            <div class="mb-3">
+                                <strong>Realmlist:</strong><br>
+                                <code class="fs-6"><?php echo get_config('realmlist'); ?></code>
                             </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <strong><?php elang('game_version'); ?>:</strong><br>
-                                    <code class="fs-6"><?php echo get_config('game_version'); ?></code>
-                                </div>
+                            
+                            <div class="mb-3">
+                                <strong>Game Version:</strong><br>
+                                <code class="fs-6"><?php echo get_config('game_version'); ?></code>
                             </div>
                         </div>
                     </div>
@@ -102,24 +101,17 @@
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body">
                         <h4 class="card-title text-center mb-3">
-                            <i class="fas fa-info-circle text-primary me-2"></i>
                             How to Connect
                         </h4>
                         
                         <div class="row">
                             <div class="col-12">
-                                <h6>Step 1: Download Client</h6>
-                                <p>Download the appropriate game client version for our server.</p>
-                                
-                                <h6>Step 2: Set Realmlist</h6>
-                                <p>Navigate to your game directory and edit the <code>realmlist.wtf</code> file:</p>
-                                <pre><code>set realmlist <?php echo get_config('realmlist'); ?></code></pre>
-                                
-                                <h6>Step 3: Create Account</h6>
-                                <p>Use the registration form above to create your account.</p>
-                                
-                                <h6>Step 4: Connect</h6>
-                                <p>Launch the game and log in with your credentials!</p>
+                                <p>1. Download and install the World of Warcraft client version <?php echo get_config('game_version'); ?>.</p>
+                                <p>2. Navigate to your World of Warcraft folder and locate the "Data" folder.</p>
+                                <p>3. Find the file named "realmlist.wtf" and open it with a text editor.</p>
+                                <p>4. Replace the content with: <code>set realmlist <?php echo get_config('realmlist'); ?></code></p>
+                                <p>5. Save the file and close the text editor.</p>
+                                <p>6. Launch World of Warcraft and log in with your registered account.</p>
                             </div>
                         </div>
                     </div>

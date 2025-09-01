@@ -18,6 +18,7 @@
             justify-content: center;
             margin: 0;
             padding: 20px;
+            overflow: hidden;
         }
         
         body::before {
@@ -68,7 +69,7 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #6c757d;
             border: none;
             border-radius: 8px;
             padding: 6px 16px;
@@ -78,8 +79,9 @@
         }
         
         .btn-primary:hover {
+            background: #5a6268;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .nav-tabs {
@@ -103,7 +105,7 @@
         }
         
         .nav-tabs .nav-link.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #6c757d;
             color: white;
         }
         
@@ -118,16 +120,23 @@
             color: #ffffff;
             font-size: 11px;
             padding: 6px 10px;
+            margin-bottom: 10px;
+        }
+        
+        .alert-danger {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+        
+        .alert-success {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.3);
         }
         
         .card {
             background: rgba(25, 25, 25, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
-        }
-        
-        .card-body {
-            padding: 12px !important;
         }
         
         .text-muted {
@@ -140,6 +149,10 @@
         
         h1, h2, h3, h4, h5, h6 {
             color: #ffffff;
+        }
+        
+        .card-body {
+            padding: 12px !important;
         }
         
         h4 {
@@ -175,24 +188,15 @@
             padding-bottom: 10px !important;
         }
         
-        .modal-content {
-            background: rgba(25, 25, 25, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-        
-        .modal-header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .btn-close {
-            filter: invert(1);
-        }
-        
         .tab-content {
             flex: 1;
-            overflow-y: auto;
+            overflow: hidden;
             padding: 0;
+        }
+        
+        .tab-pane {
+            height: 100%;
+            overflow: hidden;
         }
         
         .p-4 {
@@ -212,7 +216,44 @@
             font-size: 11px;
             margin-bottom: 8px;
         }
+        
+        .server-info-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            text-align: center;
+            padding-top: 20px;
+        }
+        
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .form-fields {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .form-submit {
+            margin-top: auto;
+            padding-top: 10px;
+        }
     </style>
 </head>
 <body>
-    <div class="main-container p-4">
+    <div class="main-container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-register-tab" data-bs-toggle="tab" data-bs-target="#nav-register" type="button" role="tab">Register</button>
+                <button class="nav-link" id="nav-serverinfo-tab" data-bs-toggle="tab" data-bs-target="#nav-serverinfo" type="button" role="tab">Server Information</button>
+                <button class="nav-link" id="nav-howtoconnect-tab" data-bs-toggle="tab" data-bs-target="#nav-howtoconnect" type="button" role="tab">How to Connect</button>
+            </div>
+        </nav>
+        
+        <div class="tab-content" id="nav-tabContent">

@@ -54,4 +54,45 @@ class database
             }
         }
     }
+
+    // Add insert method to match webexample's database structure
+    public static function insert($table, $data)
+    {
+        try {
+            // Filter out empty values to avoid NULL issues
+            $filtered_data = array_filter($data, function($value) {
+                return $value !== '' && $value !== null;
+            });
+            
+            $columns = implode(', ', array_keys($filtered_data));
+            $placeholders = ':' . implode(', :', array_keys($filtered_data));
+            
+            $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+            
+            if (get_config('debug_mode')) {
+                error_log("SQL Query: " . $sql);
+                error_log("Data: " . print_r($filtered_data, true));
+            }
+            
+            $stmt = self::$auth->prepare($sql);
+            $result = $stmt->execute($filtered_data);
+            
+            if (!$result) {
+                throw new Exception("Database insert failed: " . implode(", ", $stmt->errorInfo()));
+            }
+            
+            return self::$auth->lastInsertId();
+        } catch (PDOException $e) {
+            if (get_config('debug_mode')) {
+                throw new Exception("Database error: " . $e->getMessage());
+            } else {
+                throw new Exception("Database operation failed");
+            }
+        }
+    }
+
+    public static function lastInsertId()
+    {
+        return self::$auth->lastInsertId();
+    }
 }
