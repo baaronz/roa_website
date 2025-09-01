@@ -224,7 +224,6 @@
             justify-content: flex-start;
             height: 100%;
             text-align: center;
-            padding-top: 30px;
         }
     </style>
 </head>

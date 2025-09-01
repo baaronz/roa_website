@@ -2,20 +2,6 @@
 
 <div class="row h-100">
     <div class="col-12 d-flex flex-column">
-        <nav class="flex-shrink-0">
-            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-register-tab" data-bs-toggle="tab" href="#nav-register" role="tab">
-                    <i class="fas fa-user-plus me-1"></i><?php elang('register'); ?>
-                </a>
-                <a class="nav-item nav-link" id="nav-serverinfo-tab" data-bs-toggle="tab" href="#nav-serverinfo" role="tab">
-                    <i class="fas fa-server me-1"></i><?php elang('server_info'); ?>
-                </a>
-                <a class="nav-item nav-link" id="nav-howtoconnect-tab" data-bs-toggle="tab" href="#nav-howtoconnect" role="tab">
-                    <i class="fas fa-info-circle me-1"></i><?php elang('how_to_connect'); ?>
-                </a>
-            </div>
-        </nav>
-        
         <div class="tab-content flex-grow-1" id="nav-tabContent">
             <!-- Registration Tab -->
             <div class="tab-pane fade show active h-100" id="nav-register" role="tabpanel">
@@ -74,7 +60,7 @@
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body">
                         <div class="server-info-container">
-                            <h4 class="card-title text-center mb-4">
+                            <h4 class="card-title text-center mb-3">
                                 Server Information
                             </h4>
                             
@@ -102,12 +88,14 @@
                         
                         <div class="row">
                             <div class="col-12">
-                                <p>1. Download and install the World of Warcraft client version <?php echo get_config('game_version'); ?>.</p>
+                                <p>1. Download and install the World of Warcraft client version <?php echo get_config('game_version'); ?> from <a href="https://www.chromiecraft.com/en/downloads/" target="_blank" style="color: #667eea; text-decoration: underline;">ChromieCraft</a>.</p>
                                 <p>2. Navigate to your World of Warcraft folder and locate the "Data" folder.</p>
                                 <p>3. Find the file named "realmlist.wtf" and open it with a text editor.</p>
                                 <p>4. Replace the content with: <code>set realmlist <?php echo get_config('realmlist'); ?></code></p>
                                 <p>5. Save the file and close the text editor.</p>
-                                <p>6. Launch World of Warcraft and log in with your registered account.</p>
+                                <p>6. Download all the required data from <a href="http://realmofazeroth.ddns.net:3923/copyparty/" target="_blank" style="color: #667eea; text-decoration: underline;">here</a> to play on the server.</p>
+                                <p>7. Launch World of Warcraft and log in with your registered account.</p>
+                                <p>8. Join our <a href="https://discord.gg/BDa24UP5Aj" target="_blank" style="color: #667eea; text-decoration: underline;">Discord</a> for further information.</p>
                             </div>
                         </div>
                     </div>

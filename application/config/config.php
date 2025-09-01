@@ -16,7 +16,7 @@ $config['supported_langs'] = [ // Supported languages
 $config['debug_mode'] = true; // Set to false in production
 
 // Server Information
-$config['realmlist'] = 'logon.myserver.com'; // Your server realmlist
+$config['realmlist'] = 'realmofazeroth.ddns.net'; // Your server realmlist
 $config['game_version'] = '3.3.5a (12340)'; // Game version
 
 // Server Core Type
