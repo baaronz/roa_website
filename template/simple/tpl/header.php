@@ -234,7 +234,7 @@
                 <button class="nav-link active" id="nav-register-tab" data-bs-toggle="tab" data-bs-target="#nav-register" type="button" role="tab">Register</button>
                 <button class="nav-link" id="nav-serverinfo-tab" data-bs-toggle="tab" data-bs-target="#nav-serverinfo" type="button" role="tab">Server Information</button>
                 <button class="nav-link" id="nav-howtoconnect-tab" data-bs-toggle="tab" data-bs-target="#nav-howtoconnect" type="button" role="tab">How to Connect</button>
-                <a href="http://copyparty.frostforge.click/" target="_blank" class="nav-link" style="text-decoration: none;">Copyparty</a>
+                <a href="http://copyparty.frostforge.click/copyparty" target="_blank" class="nav-link" style="text-decoration: none;">Copyparty</a>
             </div>
         </nav>
         
