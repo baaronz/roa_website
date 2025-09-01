@@ -35,9 +35,9 @@ $config['template'] = 'simple'; // Our simple template
 // Database Configuration
 $config['db_auth_host'] = 'localhost';
 $config['db_auth_port'] = '3306';
-$config['db_auth_user'] = 'root';
-$config['db_auth_pass'] = '';
-$config['db_auth_dbname'] = 'auth';
+$config['db_auth_user'] = 'acore';
+$config['db_auth_pass'] = 'acore';
+$config['db_auth_dbname'] = 'acore_auth';
 
 // Character Database (if needed)
 $config['realmlists'] = [
@@ -45,9 +45,9 @@ $config['realmlists'] = [
         'realmid' => 1,
         'db_host' => 'localhost',
         'db_port' => '3306',
-        'db_user' => 'root',
-        'db_pass' => '',
-        'db_name' => 'characters'
+        'db_user' => 'acore',
+        'db_pass' => 'acore',
+        'db_name' => 'acore_characters'
     ]
 ];
 
