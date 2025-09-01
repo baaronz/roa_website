@@ -20,7 +20,7 @@
             <!-- Registration Tab -->
             <div class="tab-pane fade show active" id="nav-register" role="tabpanel">
                 <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6">
+                    <div class="col-12">
                         <div class="card border-0 shadow-sm">
                             <div class="card-body p-4">
                                 <h4 class="card-title text-center mb-4">

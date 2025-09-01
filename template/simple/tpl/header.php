@@ -13,6 +13,11 @@
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
         }
         
         body::before {
@@ -32,9 +37,11 @@
             border-radius: 15px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
-            margin: 20px auto;
+            width: 100%;
             max-width: 500px;
+            max-height: 600px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
         }
         
         .form-control {
@@ -137,15 +144,12 @@
         .btn-close {
             filter: invert(1);
         }
+        
+        .tab-content {
+            max-height: 450px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="main-container p-4">
-            <div class="text-center mb-4">
-                <h1 class="display-4 text-primary mb-3">
-                    <i class="fas fa-gamepad me-2"></i>
-                    <?php echo get_config('page_title'); ?>
-                </h1>
-                <p class="text-muted">Create your account and start your adventure!</p>
-            </div>
+    <div class="main-container p-4">
