@@ -39,19 +39,21 @@
             backdrop-filter: blur(10px);
             width: 100%;
             max-width: 400px;
-            max-height: 450px;
+            height: 450px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         
         .form-control {
             background: rgba(30, 30, 30, 0.8);
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            padding: 8px 12px;
+            padding: 6px 10px;
             color: #ffffff;
             transition: all 0.3s ease;
-            font-size: 14px;
+            font-size: 13px;
         }
         
         .form-control:focus {
@@ -69,10 +71,10 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
             border-radius: 8px;
-            padding: 8px 20px;
+            padding: 6px 16px;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 14px;
+            font-size: 13px;
         }
         
         .btn-primary:hover {
@@ -85,7 +87,8 @@
             background: rgba(30, 30, 30, 0.8);
             border-radius: 8px;
             padding: 3px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
         }
         
         .nav-tabs .nav-link {
@@ -94,9 +97,9 @@
             color: rgba(255, 255, 255, 0.7);
             font-weight: 500;
             transition: all 0.3s ease;
-            font-size: 12px;
-            padding: 6px 8px;
-            margin: 0 2px;
+            font-size: 11px;
+            padding: 5px 6px;
+            margin: 0 1px;
         }
         
         .nav-tabs .nav-link.active {
@@ -113,8 +116,8 @@
             border: none;
             background: rgba(30, 30, 30, 0.8);
             color: #ffffff;
-            font-size: 12px;
-            padding: 8px 12px;
+            font-size: 11px;
+            padding: 6px 10px;
         }
         
         .card {
@@ -124,7 +127,7 @@
         }
         
         .card-body {
-            padding: 15px !important;
+            padding: 12px !important;
         }
         
         .text-muted {
@@ -140,31 +143,36 @@
         }
         
         h4 {
-            font-size: 18px;
-            margin-bottom: 15px !important;
+            font-size: 16px;
+            margin-bottom: 10px !important;
         }
         
-        label {
-            color: rgba(255, 255, 255, 0.9);
+        h6 {
             font-size: 13px;
             margin-bottom: 5px;
         }
         
+        label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+        
         .form-label {
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
         
         .mb-3 {
-            margin-bottom: 12px !important;
+            margin-bottom: 8px !important;
         }
         
         .mb-4 {
-            margin-bottom: 15px !important;
+            margin-bottom: 10px !important;
         }
         
         .py-4 {
-            padding-top: 15px !important;
-            padding-bottom: 15px !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
         }
         
         .modal-content {
@@ -182,12 +190,27 @@
         }
         
         .tab-content {
-            max-height: 350px;
+            flex: 1;
             overflow-y: auto;
+            padding: 0;
         }
         
         .p-4 {
-            padding: 15px !important;
+            padding: 12px !important;
+        }
+        
+        p {
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        
+        code {
+            font-size: 11px;
+        }
+        
+        pre {
+            font-size: 11px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
